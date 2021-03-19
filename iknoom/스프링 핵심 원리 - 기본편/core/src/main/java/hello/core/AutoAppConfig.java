@@ -14,8 +14,8 @@ import org.springframework.context.annotation.FilterType;
 // 원래는 이렇게 안하지만 예제 코드를 유지하기 위함임
 public class AutoAppConfig {
 
-    @Bean(name = "memoryMemberRepository")
-    public MemberRepository memberRepository() {
-        return new MemoryMemberRepository();
-    }
+//    @Bean(name = "memoryMemberRepository")
+//    public MemberRepository memberRepository() {
+//        return new MemoryMemberRepository();
+//    }
 }
