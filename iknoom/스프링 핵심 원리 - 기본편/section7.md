@@ -92,5 +92,51 @@ public OrderServiceImpl(MemberRepository memberRepository, @Qualifier("mainDisco
 
 
 
+## 애노테이션 만들기
+
+@Qualifier로 만들면 문자열이라 체크가 어렵다.
+
+```java
+@Target({ElementType.FIELD, ElementType.METHOD, ElementType.PARAMETER, ElementType.TYPE, ElementType.ANNOTATION_TYPE})
+@Retention(RetentionPolicy.RUNTIME)
+@Inherited
+@Documented
+@Qualifier("mainDiscountPolicy")
+public @interface MainDiscountPolicy {
+}
+```
+
+이렇게 만들고 Qualifier 대신에 직접 만든 애노테이션을 사용한다.
+
+Qualifier을 쓰는 것보다 에러를 체크하는 면에서 이 방법이 더 나은 것 같다.
+
+위와 같이 애노테이션을 조합해서 사용하는 기능은 스프링이 지원해주는 기능이다.
+
+
+
+## 조회한 빈이 모두 필요할 때
+
+```java
+static class DiscountService {
+    private final Map<String, DiscountPolicy> policyMap;
+    private final List<DiscountPolicy> policies;
+
+    @Autowired
+    public DiscountService(Map<String, DiscountPolicy> policyMap, List<DiscountPolicy> policies) {
+        this.policyMap = policyMap;
+        this.policies = policies;
+        System.out.println("policyMap = " + policyMap);
+        System.out.println("policies = " + policies);
+    }
+
+    public int discount(Member member, int price, String discountCode) {
+        DiscountPolicy discountPolicy = policyMap.get(discountCode);
+        return discountPolicy.discount(member, price);
+    }
+}
+```
+
+Map, List로 필드를 생성하고 컴포넌트 스캔을 하면 여러 빈을 다 넣어준다.
+
 
 
