@@ -8,6 +8,11 @@
         <class>jpabook.jpashop.domain.Item</class>
         <class>jpabook.jpashop.domain.Order</class>
         <class>jpabook.jpashop.domain.OrderItem</class>
+        <class>jpabook.jpashop.domain.Delivery</class>
+        <class>jpabook.jpashop.domain.Category</class>
+        <class>jpabook.jpashop.domain.Album</class>
+        <class>jpabook.jpashop.domain.Movie</class>
+        <class>jpabook.jpashop.domain.Book</class>
         <properties>
             <!-- 필수 속성 -->
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
@@ -19,7 +24,7 @@
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
             <property name="hibernate.use_sql_comments" value="true"/>
-            <property name="hibernate.hbm2ddl.auto" value="create" />
+            <property name="hibernate.hbm2ddl.auto" value="create-drop" />
         </properties>
     </persistence-unit>
 </persistence>
