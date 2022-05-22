@@ -73,4 +73,4 @@ https://restfulapi.net/resource-naming/
 - 스토어(store)
   - 클라이언트가 관리하는 자원 저장소
 - 컨트롤러(controller), 컨트롤 URI
-  - 문서, 컬렉션, 스토어로 해결하기 오려운 추가 프로세스
+  - 문서, 컬렉션, 스토어로 해결하기 어려운 추가 프로세스

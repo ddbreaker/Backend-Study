@@ -62,7 +62,7 @@ scheme://[userinfo@]host[:port][/path][?query][#fragment]
 https://www.google.com:443/search?q=hello&hl=ko
 ```
 
-### 2. 웹 브라우저가 HTTP 요청 메시지 생성
+### 2. 웹 브라우저가 HTTP 요청 메시지 생성(애플리케이션 계층)
 
 ```
 GET /search?q=hello&hl=ko HTTP/1.1
@@ -85,8 +85,13 @@ Host: www.google.com
 ### 6. HTTP 응답 메시지를 포함한 응답 패킷을 받음
 
 ```
-HTTP/1.1 200 OKContent-Type: text/html;charset=UTF-8Content-Length: 3423
-<html> <body>...</body></html>
+HTTP/1.1 200 OK
+Content-Type: text/html;charset=UTF-8
+Content-Length: 3423
+<html>
+	<body>...</body>
+</html>
 ```
 
 ### 7. 웹 브라우저가 HTML을 렌더링
+
